@@ -1,8 +1,8 @@
-import { CustomText } from "../../CustomText";
-import { View } from "react-native";
-import { RenderCircleSmall } from "../RenderCircle";
-import { COLOR_PRIMARY, COLOR_WHITE, SIZE_SMALL } from "../../../constants";
-import { styles } from "../../../styles";
+import { CustomText } from '../../CustomText';
+import { View } from 'react-native';
+import { RenderCircleSmall } from '../RenderCircle';
+import { COLOR_PRIMARY, SIZE_SMALL } from '../../../constants';
+import { styles } from '../../../styles';
 export function TimeLineHeader({ text }) {
   const { fRow, alignItemsCenter, timeLineLeft } = styles;
   return (

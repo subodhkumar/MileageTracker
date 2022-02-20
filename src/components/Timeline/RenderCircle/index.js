@@ -1,6 +1,6 @@
-import { View } from "react-native";
-import { CustomIcon } from "../../CustomIcon";
-import { COLOR_PRIMARY, ICON_GAS, SIZE_XXLARGE } from "../../../constants";
+import { View } from 'react-native';
+import { CustomIcon } from '../../CustomIcon';
+import { COLOR_PRIMARY, ICON_GAS, SIZE_XXLARGE } from '../../../constants';
 export function RenderCircle() {
   return (
     <View
@@ -10,8 +10,8 @@ export function RenderCircle() {
         backgroundColor: COLOR_PRIMARY,
         borderRadius: 25,
         left: -25,
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: 'center',
+        alignItems: 'center',
       }}
     >
       <CustomIcon icon={ICON_GAS} size={SIZE_XXLARGE} />

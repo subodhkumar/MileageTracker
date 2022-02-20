@@ -1,12 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Button,
-  Pressable,
-  TextInput,
-  FlatList,
-} from "react-native";
+import { StyleSheet } from 'react-native';
 import {
   COLOR_BG,
   COLOR_BG_DARK,
@@ -14,7 +6,7 @@ import {
   COLOR_MUTE,
   COLOR_PRIMARY,
   COLOR_WHITE,
-} from "../constants";
+} from '../constants';
 export const styles = StyleSheet.create({
   container: {
     backgroundColor: COLOR_BG_DARK,
@@ -25,8 +17,8 @@ export const styles = StyleSheet.create({
     backgroundColor: COLOR_PRIMARY,
   },
   button: {
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
     paddingVertical: 12,
     paddingHorizontal: 32,
     borderRadius: 4,
@@ -41,33 +33,33 @@ export const styles = StyleSheet.create({
     color: COLOR_WHITE,
   },
   clearDataButton: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 85,
     right: 15,
     width: 60,
     height: 60,
     borderRadius: 30,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     elevation: 5,
     borderColor: COLOR_DANGER,
     borderWidth: 1,
-    elevation:5,
-    opacity: .75
+    elevation: 5,
+    opacity: 0.75,
   },
   addEntryButton: {
-    position: "absolute",
+    position: 'absolute',
     bottom: 15,
     right: 15,
     width: 60,
     height: 60,
     borderRadius: 30,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     elevation: 5,
-    opacity:.75,
+    opacity: 0.75,
     borderWidth: 1,
-    borderColor: COLOR_PRIMARY
+    borderColor: COLOR_PRIMARY,
   },
   textSm: {
     fontSize: 12,
@@ -86,17 +78,17 @@ export const styles = StyleSheet.create({
     borderRadius: 15,
     elevation: 3,
   },
-  mh10:{
-    marginHorizontal: 10
+  mh10: {
+    marginHorizontal: 10,
   },
-  mh20:{
-    marginHorizontal: 20
+  mh20: {
+    marginHorizontal: 20,
   },
-  mv10:{
-    marginVertical: 10
+  mv10: {
+    marginVertical: 10,
   },
-  mv20:{
-    marginVertical: 20
+  mv20: {
+    marginVertical: 20,
   },
   ph10: {
     paddingHorizontal: 10,
@@ -113,34 +105,34 @@ export const styles = StyleSheet.create({
   pv20: {
     paddingVertical: 20,
   },
-  bgPrimary:{
-    backgroundColor: COLOR_PRIMARY
+  bgPrimary: {
+    backgroundColor: COLOR_PRIMARY,
   },
-  bgDefault:{
-    backgroundColor: COLOR_BG
+  bgDefault: {
+    backgroundColor: COLOR_BG,
   },
-  bgDark:{
-    backgroundColor: COLOR_BG_DARK
+  bgDark: {
+    backgroundColor: COLOR_BG_DARK,
   },
-  fRow:{
-    flexDirection:'row'
+  fRow: {
+    flexDirection: 'row',
   },
   cPrimary: {
-    color: COLOR_PRIMARY
+    color: COLOR_PRIMARY,
   },
-  cWhite:{
-    color: COLOR_WHITE
+  cWhite: {
+    color: COLOR_WHITE,
   },
-  alignItemsCenter :{
-    alignItems:'center'
+  alignItemsCenter: {
+    alignItems: 'center',
   },
-  justifyContentCenter:{
-    justifyContent: 'center'
+  justifyContentCenter: {
+    justifyContent: 'center',
   },
-  timeLineLeft:{
-    left: 30
+  timeLineLeft: {
+    left: 30,
   },
-  h100:{
-    height: '100%'
-  }
+  h100: {
+    height: '100%',
+  },
 });

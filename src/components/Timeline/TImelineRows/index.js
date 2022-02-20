@@ -1,7 +1,7 @@
-import { RenderCircle } from "../RenderCircle";
-import { TimelineCard } from "../TimelineCard";
-import { View } from "react-native";
-import { styles } from "../../../styles";
+import { RenderCircle } from '../RenderCircle';
+import { TimelineCard } from '../TimelineCard';
+import { View } from 'react-native';
+import { styles } from '../../../styles';
 export function TimeLineRows({ item }) {
   const { fRow, mv10 } = styles;
   return (

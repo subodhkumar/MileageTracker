@@ -1,19 +1,13 @@
-import { TextInput, View, Text } from "react-native";
-import { COLOR_BG_DARK, COLOR_MUTE, COLOR_WHITE } from "../../constants";
-export function CustomTextInput({
-  style,
-  label,
-  children,
-  onChange,
-  ...props
-}) {
+import { TextInput, View, Text } from 'react-native';
+import { COLOR_BG_DARK, COLOR_MUTE, COLOR_WHITE } from '../../constants';
+export function CustomTextInput({ style, label, children, onChange, ...props }) {
   return (
     <View style={style}>
       {label && (
         <Text
           style={{
             color: COLOR_MUTE,
-            position: "absolute",
+            position: 'absolute',
             top: -8,
             left: 8,
             fontSize: 10,

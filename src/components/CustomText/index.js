@@ -1,22 +1,12 @@
-import { View, Text } from "react-native";
-import { styles } from "../../styles";
-import { getFontSize } from "../../utils";
-import { CustomIcon } from "../CustomIcon";
-import { COLOR_MUTE, COLOR_TEXT, SIZE_XSMALL } from "../../constants";
-export function CustomText({
-  text = "Sample Text",
-  icon,
-  prefix,
-  suffix,
-  size,
-  color,
-}) {
+import { View, Text } from 'react-native';
+import { styles } from '../../styles';
+import { getFontSize } from '../../utils';
+import { COLOR_MUTE, COLOR_TEXT, SIZE_XSMALL } from '../../constants';
+export function CustomText({ text = 'Sample Text', icon, prefix, suffix, size, color }) {
   return (
-    <View style={{ flexDirection: "row", alignItems: "flex-end" }}>
+    <View style={{ flexDirection: 'row', alignItems: 'flex-end' }}>
       {prefix && (
-        <Text
-          style={{ fontSize: getFontSize(size), color: color || COLOR_TEXT }}
-        >
+        <Text style={{ fontSize: getFontSize(size), color: color || COLOR_TEXT }}>
           {prefix.toString()}
         </Text>
       )}

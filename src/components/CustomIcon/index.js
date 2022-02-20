@@ -1,32 +1,25 @@
-import { MaterialIcons } from "@expo/vector-icons";
-import { COLOR_WHITE } from "../../constants";
+import { MaterialIcons } from '@expo/vector-icons';
+import { COLOR_WHITE } from '../../constants';
 export function CustomIcon({ icon, color, size, style }) {
   let iconSize = 12;
   switch (size) {
-    case "sm":
+    case 'sm':
       iconSize = 12;
       break;
-    case "md":
+    case 'md':
       iconSize = 15;
       break;
-    case "lg":
+    case 'lg':
       iconSize = 18;
       break;
-    case "xl":
+    case 'xl':
       iconSize = 21;
       break;
-    case "xxl":
+    case 'xxl':
       iconSize = 24;
       break;
     default:
       break;
   }
-  return (
-    <MaterialIcons
-      name={icon}
-      size={iconSize}
-      color={color || COLOR_WHITE}
-      style={style}
-    />
-  );
+  return <MaterialIcons name={icon} size={iconSize} color={color || COLOR_WHITE} style={style} />;
 }

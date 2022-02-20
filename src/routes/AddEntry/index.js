@@ -1,6 +1,5 @@
-import { View, Pressable, TextInput } from "react-native";
+import { View, Pressable, TextInput } from 'react-native';
 import {
-  COLOR_BG_DARK,
   COLOR_PRIMARY,
   ICON_DOLLAR_SIGN,
   ICON_GAS,
@@ -12,33 +11,32 @@ import {
   ICON_LEFT_ARROW,
   ICON_CHECK,
   SIZE_LARGE,
-} from "../../constants";
-import { useState } from "react";
-import { PrefixIcon } from "../../components/PrefixIcon";
-import { styles } from "../../styles";
-import { CustomTextInput } from "../../components/CustomTextInput/input";
-import { MuteText } from "../../components/MuteText";
-import { CustomText } from "../../components/CustomText";
-import { useDispatch, useSelector } from "react-redux";
-import { formatDateToLocale } from "../../utils";
-import { CustomIcon } from "../../components/CustomIcon";
-import { addRefuel } from "../../store/refuel/refuelSlice";
-import DateTimePicker from "@react-native-community/datetimepicker";
-import { ClearDataButton } from "../../components/ClearDataButton";
+} from '../../constants';
+import { useState } from 'react';
+import { PrefixIcon } from '../../components/PrefixIcon';
+import { styles } from '../../styles';
+import { CustomTextInput } from '../../components/CustomTextInput/input';
+import { MuteText } from '../../components/MuteText';
+import { CustomText } from '../../components/CustomText';
+import { useDispatch, useSelector } from 'react-redux';
+import { formatDateToLocale } from '../../utils';
+import { CustomIcon } from '../../components/CustomIcon';
+import { addRefuel } from '../../store/refuel/refuelSlice';
+import DateTimePicker from '@react-native-community/datetimepicker';
 
 export function AddEntryScreen({ navigation }) {
   const [date, setDate] = useState(new Date(Date.now()));
-  const [mode, setMode] = useState("date");
+  const [mode, setMode] = useState('date');
   const [show, setShow] = useState(false);
-  const [gas, setGas] = useState("");
-  const [price, setPrice] = useState("");
-  const [odometer, setOdometer] = useState("");
+  const [gas, setGas] = useState('');
+  const [price, setPrice] = useState('');
+  const [odometer, setOdometer] = useState('');
 
   const dispatch = useDispatch();
 
   const onDateOrTimeChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
-    setShow(Platform.OS === "ios");
+    setShow(Platform.OS === 'ios');
     setDate(currentDate);
   };
 
@@ -48,30 +46,26 @@ export function AddEntryScreen({ navigation }) {
   };
 
   const showDatepicker = () => {
-    showMode("date");
+    showMode('date');
   };
 
   const showTimepicker = () => {
-    showMode("time");
+    showMode('time');
   };
 
   const isValidOdometer = (odometer) =>
     odometer && lastEntry && parseInt(odometer) > parseInt(lastEntry.odometer);
-  const isValidGas = (gas) => gas && gas !== "";
-  const isValidPrice = (price) => price && price != "";
-  const isValidDateTime = (date) =>
-    date && lastEntry && new Date(date) > new Date(lastEntry.date);
+  const isValidGas = (gas) => gas && gas !== '';
+  const isValidPrice = (price) => price && price != '';
+  const isValidDateTime = (date) => date && lastEntry && new Date(date) > new Date(lastEntry.date);
 
   const isValidData = () =>
-    isValidOdometer(odometer) &&
-    isValidGas(gas) &&
-    isValidPrice(price) &&
-    isValidDateTime(date);
+    isValidOdometer(odometer) && isValidGas(gas) && isValidPrice(price) && isValidDateTime(date);
 
   const resetData = () => {
-    setOdometer("");
-    setGas("");
-    setPrice("");
+    setOdometer('');
+    setGas('');
+    setPrice('');
     setDate(new Date(Date.now()));
   };
 
@@ -98,7 +92,7 @@ export function AddEntryScreen({ navigation }) {
     odometer: -1,
     gas: 0,
     price: 0,
-    date: new Date("1700-01-01T00:00:00").toISOString(),
+    date: new Date('1700-01-01T00:00:00').toISOString(),
   };
 
   const lastEntry = useSelector(({ refuel: { data } }) => {
@@ -128,7 +122,7 @@ export function AddEntryScreen({ navigation }) {
       </View>
 
       <View style={{ flex: 4 }}>
-        <CustomText text={"Add Entry"} size={SIZE_LARGE} />
+        <CustomText text={'Add Entry'} size={SIZE_LARGE} />
       </View>
 
       <View style={{ width: 40 }}>
@@ -143,16 +137,12 @@ export function AddEntryScreen({ navigation }) {
     </View>
   );
   const RowDateTime = () => (
-    <PrefixIcon
-      icon={ICON_DATE}
-      iconSize={SIZE_XXLARGE}
-      iconColor={COLOR_PRIMARY}
-    >
+    <PrefixIcon icon={ICON_DATE} iconSize={SIZE_XXLARGE} iconColor={COLOR_PRIMARY}>
       <View>
-        <View style={{ flexDirection: "row" }}>
+        <View style={{ flexDirection: 'row' }}>
           <View style={{ flex: 1 }}>
             <CustomTextInput
-              label={"Date"}
+              label={'Date'}
               style={styles.input}
               onPressIn={showDatepicker}
               value={date.toLocaleDateString()}
@@ -160,7 +150,7 @@ export function AddEntryScreen({ navigation }) {
           </View>
           <View style={{ flex: 1 }}>
             <CustomTextInput
-              label={"Time"}
+              label={'Time'}
               style={styles.input}
               onPressIn={showTimepicker}
               value={date.toLocaleTimeString()}
@@ -197,54 +187,44 @@ export function AddEntryScreen({ navigation }) {
         )}
       </View>
 
-      <PrefixIcon
-        icon={ICON_MILEAGE}
-        iconSize={SIZE_XXLARGE}
-        iconColor={COLOR_PRIMARY}
-      >
+      <PrefixIcon icon={ICON_MILEAGE} iconSize={SIZE_XXLARGE} iconColor={COLOR_PRIMARY}>
         <CustomTextInput
           style={[styles.input]}
-          placeholder={"Odometer (mi)"}
+          placeholder={'Odometer (mi)'}
           placeholderTextColor={COLOR_MUTE}
           keyboardType="numeric"
-          value={odometer ? odometer.toString() : ""}
+          value={odometer ? odometer.toString() : ''}
           onChangeText={setOdometer}
         >
           {lastEntry && (
             <MuteText
               text={`${
-                odometer && !isValidOdometer(odometer)
-                  ? "Should be greater than "
-                  : ""
-              }Last Value: ${lastEntry.odometer<0?0:lastEntry.odometer}`}
-              suffix={"mi"}
+                odometer && !isValidOdometer(odometer) ? 'Should be greater than ' : ''
+              }Last Value: ${lastEntry.odometer < 0 ? 0 : lastEntry.odometer}`}
+              suffix={'mi'}
             />
           )}
         </CustomTextInput>
       </PrefixIcon>
 
-      <PrefixIcon
-        icon={ICON_GAS}
-        iconSize={SIZE_XXLARGE}
-        iconColor={COLOR_PRIMARY}
-      >
-        <View style={{ flexDirection: "row" }}>
+      <PrefixIcon icon={ICON_GAS} iconSize={SIZE_XXLARGE} iconColor={COLOR_PRIMARY}>
+        <View style={{ flexDirection: 'row' }}>
           <View style={{ flex: 1 }}>
             <TextInput
               style={styles.input}
-              placeholder={"Gas(l)"}
+              placeholder={'Gas(l)'}
               placeholderTextColor={COLOR_MUTE}
-              value={gas ? gas.toString() : ""}
+              value={gas ? gas.toString() : ''}
               onChangeText={setGas}
               keyboardType="numeric"
             />
           </View>
           <View style={{ flex: 1 }}>
             <CustomTextInput
-              label={"Gas type"}
+              label={'Gas type'}
               style={[styles.input]}
-              placeholder={"Gastype"}
-              defaultValue={"Regular"}
+              placeholder={'Gastype'}
+              defaultValue={'Regular'}
               placeholderTextColor={COLOR_MUTE}
               editable={false}
             />
@@ -252,18 +232,14 @@ export function AddEntryScreen({ navigation }) {
         </View>
       </PrefixIcon>
 
-      <PrefixIcon
-        icon={ICON_DOLLAR_SIGN}
-        iconSize={SIZE_XXLARGE}
-        iconColor={COLOR_PRIMARY}
-      >
-        <View style={{ flexDirection: "row" }}>
+      <PrefixIcon icon={ICON_DOLLAR_SIGN} iconSize={SIZE_XXLARGE} iconColor={COLOR_PRIMARY}>
+        <View style={{ flexDirection: 'row' }}>
           <View style={{ flex: 1 }}>
             <TextInput
               style={styles.input}
-              placeholder={"Price/L"}
+              placeholder={'Price/L'}
               placeholderTextColor={COLOR_MUTE}
-              value={price ? price.toString() : ""}
+              value={price ? price.toString() : ''}
               onChangeText={setPrice}
               keyboardType="numeric"
             />
@@ -271,16 +247,11 @@ export function AddEntryScreen({ navigation }) {
           <View style={{ flex: 1 }}>
             <TextInput
               style={styles.input}
-              placeholder={"Total Cost"}
+              placeholder={'Total Cost'}
               placeholderTextColor={COLOR_MUTE}
               editable={false}
               value={
-                (gas &&
-                  price &&
-                  (parseFloat(gas) * parseFloat(price))
-                    .toFixed(3)
-                    .toString()) ||
-                ""
+                (gas && price && (parseFloat(gas) * parseFloat(price)).toFixed(3).toString()) || ''
               }
             />
           </View>
@@ -288,7 +259,6 @@ export function AddEntryScreen({ navigation }) {
       </PrefixIcon>
 
       <RowDateTime />
-      
     </View>
   );
 }

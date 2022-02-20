@@ -3,21 +3,21 @@ import {
   getDayFromDate,
   getMonthNameFromDate,
   getYearFromDate,
-} from "../../../utils";
+} from '../../../utils';
 import {
   getAvgMileage,
   getLastEntryMessage,
   getLastFuelPrice,
   getLastMileage,
   getRecentCosts,
-} from "../../utils";
+} from '../../utils';
 
 export const getGasSummary = ({ refuel: { data } }) => {
   return {
     avgFuelConsumption: getAvgMileage(data) || 0,
     lastFuelConsumption: getLastMileage(data) || 0,
     lastFuelPrice: getLastFuelPrice(data) || 0,
-    lastEntryMessage: getLastEntryMessage(data) || "",
+    lastEntryMessage: getLastEntryMessage(data) || '',
   };
 };
 
@@ -37,7 +37,7 @@ export const getLastEntries = ({ refuel: { data } }) => {
   const getData = (data) => {
     return {
       date: getDateString(data.date),
-      message: "Refueling",
+      message: 'Refueling',
       amount: (parseFloat(data.price) * parseFloat(data.gas)).toFixed(3),
     };
   };
@@ -72,7 +72,7 @@ export const getTimelineSectionData = ({ refuel: { data } }) => {
     });
   }
   return keys.map((k) => ({
-    title: k.replace("-", " "),
+    title: k.replace('-', ' '),
     data: result[k],
   }));
 };

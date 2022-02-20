@@ -1,16 +1,12 @@
-import { View, ScrollView } from "react-native";
-import { useSelector } from "react-redux";
-import { AddEntryButton } from "../../../components/AddEntryButton";
-import { GasSection } from "./GasSection";
-import { CostsSection } from "./CostsSection";
-import { LastEntriesSection } from "./LastEntriesSection";
-import {
-  getCostsSummary,
-  getGasSummary,
-  getLastEntries,
-} from "../../../store/refuel/selectors";
-import { styles } from "../../../styles";
-import { ClearDataButton } from "../../../components/ClearDataButton";
+import { View, ScrollView } from 'react-native';
+import { useSelector } from 'react-redux';
+import { AddEntryButton } from '../../../components/AddEntryButton';
+import { GasSection } from './GasSection';
+import { CostsSection } from './CostsSection';
+import { LastEntriesSection } from './LastEntriesSection';
+import { getCostsSummary, getGasSummary, getLastEntries } from '../../../store/refuel/selectors';
+import { styles } from '../../../styles';
+import { ClearDataButton } from '../../../components/ClearDataButton';
 
 export function HomeScreen({ navigation }) {
   const gasSummary = useSelector(getGasSummary);

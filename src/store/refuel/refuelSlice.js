@@ -1,7 +1,7 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { getAvgMileage, getLastEntryMessage, getLastFuelPrice, getLastMileage } from "../utils";
+import { createSlice } from '@reduxjs/toolkit';
+import { getAvgMileage, getLastEntryMessage, getLastFuelPrice, getLastMileage } from '../utils';
 export const refuelSlice = createSlice({
-  name: "refuel",
+  name: 'refuel',
   initialState: {
     data: [],
   },
@@ -15,11 +15,6 @@ export const refuelSlice = createSlice({
     loadRefuel: (state) => {
       state;
     },
-    addRefuelBegin: (state) => {},
-    addRefuelEnd: (state, action) => {},
-    fetchRefuelBegin: () => {},
-    fetchRefuelSuccess: () => {},
-    fetchRefuelFailure: () => {},
   },
 });
 
@@ -31,8 +26,6 @@ export const getGasSummary = ({ refuel: { data } }) => {
     avgFuelConsumption: getAvgMileage(data) || 0,
     lastFuelConsumption: getLastMileage(data) || 0,
     lastFuelPrice: getLastFuelPrice(data) || 0,
-    lastEntryMessage: getLastEntryMessage(data) || "",
+    lastEntryMessage: getLastEntryMessage(data) || '',
   };
 };
-
-

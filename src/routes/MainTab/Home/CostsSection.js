@@ -1,36 +1,30 @@
-import { Card } from "../../../components/Card";
-import { CardContent } from "../../../components/CardContent";
-import { CardRow } from "../../../components/CardRow";
-import { CardTitle } from "../../../components/CardTitle";
-import { CustomText } from "../../../components/CustomText";
-import {
-  ICON_GAS,
-  ICON_DOLLAR_SIGN,
-  ICON_MONEY_BILL,
-  COLOR_PRIMARY,
-} from "../../../constants";
-import { MuteText } from "../../../components/MuteText";
-import { PrefixIcon } from "../../../components/PrefixIcon";
+import { Card } from '../../../components/Card';
+import { CardContent } from '../../../components/CardContent';
+import { CardRow } from '../../../components/CardRow';
+import { CardTitle } from '../../../components/CardTitle';
+import { CustomText } from '../../../components/CustomText';
+import { ICON_GAS, ICON_DOLLAR_SIGN, ICON_MONEY_BILL, COLOR_PRIMARY } from '../../../constants';
+import { MuteText } from '../../../components/MuteText';
+import { PrefixIcon } from '../../../components/PrefixIcon';
 export function CostsSection({ data: { currentMonth, previousMonth } }) {
   return (
     <Card>
       <CardTitle icon={ICON_DOLLAR_SIGN} title="Costs" />
       <CardContent>
-
         <CardRow>
           <MuteText text="THIS MONTH" />
         </CardRow>
 
         <CardRow>
           <PrefixIcon icon={ICON_GAS} iconColor={COLOR_PRIMARY}>
-            <CustomText text={currentMonth.gas} prefix={"$"} />
+            <CustomText text={currentMonth.gas} prefix={'$'} />
           </PrefixIcon>
           <MuteText text="Gas" />
         </CardRow>
 
         <CardRow>
           <PrefixIcon icon={ICON_MONEY_BILL} iconColor={COLOR_PRIMARY}>
-            <CustomText text={currentMonth.other} prefix={"$"} />
+            <CustomText text={currentMonth.other} prefix={'$'} />
           </PrefixIcon>
           <MuteText text="Other costs" />
         </CardRow>
@@ -41,18 +35,17 @@ export function CostsSection({ data: { currentMonth, previousMonth } }) {
 
         <CardRow>
           <PrefixIcon icon={ICON_GAS} iconColor={COLOR_PRIMARY}>
-            <CustomText text={previousMonth.gas} prefix={"$"} />
+            <CustomText text={previousMonth.gas} prefix={'$'} />
           </PrefixIcon>
           <MuteText text="Gas" />
         </CardRow>
 
         <CardRow>
           <PrefixIcon icon={ICON_MONEY_BILL} iconColor={COLOR_PRIMARY}>
-            <CustomText text={previousMonth.other} prefix={"$"} />
+            <CustomText text={previousMonth.other} prefix={'$'} />
           </PrefixIcon>
           <MuteText text="Other costs" />
         </CardRow>
-        
       </CardContent>
     </Card>
   );

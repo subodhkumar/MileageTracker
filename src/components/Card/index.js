@@ -1,5 +1,5 @@
-import { View } from "react-native";
-import { styles } from "../../styles";
+import { View } from 'react-native';
+import { styles } from '../../styles';
 
 export function Card({ children }) {
   const { mv20 } = styles;

@@ -82,11 +82,11 @@ export const getLastFuelPrice = (data) => {
 
 export const getLastEntryMessage = (data) => {
   if (data.length) {
-    const perDay = 1000*60*60*24 ;
+    const perDay = 1000 * 60 * 60 * 24;
     let dtDate = new Date(data[0].date);
     let curDate = new Date(Date.now());
     let diff = parseInt((curDate - dtDate) / perDay);
-    return `${dtDate.toLocaleDateString()} - ${diff.toString()} day${(diff>1 ?'s':'')} ago`;
+    return `${dtDate.toLocaleDateString()} - ${diff.toString()} day${diff > 1 ? 's' : ''} ago`;
   }
-  return "*";
+  return '*';
 };
